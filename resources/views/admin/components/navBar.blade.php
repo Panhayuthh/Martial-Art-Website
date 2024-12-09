@@ -16,17 +16,24 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item ">
-          <a class="nav-link text-uppercase fw-semibold px-3 active" aria-current="page" href="/">Event Management</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-uppercase fw-semibold px-3" href="/event">Member Management</a>
-        </li>
-      </ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+   
+    <li class="nav-item">
+        <x-nav-link href="/adminDashboard" :active="request()->is('adminDashboard')">
+            Event Management
+        </x-nav-link>
+    </li>
+    <li class="nav-item">
+        <x-nav-link href="/memberManagement" :active="request()->is('memberManagement')">
+            Member Management
+        </x-nav-link>
+    </li>
+</ul>
+
+
       <div class="d-flex align-items-center">
         <span class="text-light me-3 fw-semibold">Hi, Sunshine!</span>
-        <button class="btn btn-info text-white fw-semibold">Log Out</button>
+        <button class="btn btn-danger">Log Out</button>
       </div>
     </div>
   </div>

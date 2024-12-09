@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\MemberController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -9,32 +11,36 @@ Route::get('login', [AdminController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AdminController::class, 'login'])->name('login.submit');
 Route::post('logout', [AdminController::class, 'logout'])->name('logout');
 
+// User Routes
 Route::get('/', function () {
     return view('user.userDashboard');
 });
-Route::get('/welcome', function () {
-    return view('user.welcome');
-});
-Route::get('/event', function () {
-    return view('event');
-});Route::get('/registration', function () {
-    return view('registration');
+
+// Event Routes
+Route::get('/registration', function () {
+    return view('user.registration');
 });
 Route::get('/member', function () {
-    return view('member');
+    return view('user.member');
 });
 
-Route::prefix('shop')->group(function () {
-    Route::get('/', [ShopItemController::class, 'index'])->name('shop.index');
-    Route::get('/{shopItem}', [ShopItemController::class, 'show'])->name('shop.show');
-});
-Route::get('/dashboard', function(){
-    return view('admin.layout');
-});
-Route::prefix('admin')->group(function () { //To-do: require authentication
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/create', 'AdminController@create')->name('admin.create');
-    Route::post('/create', 'AdminController@store')->name('admin.store');
-    Route::get('/{shopItem}/edit', 'AdminController@edit')->name('admin.edit');
-    Route::put('/{shopItem}/edit', 'AdminController@update')->name('admin.update');
-    Route::delete('/{shopItem}', 'AdminController@destroy')->name('admin.destroy');
+//admin Routes 
+Route::get('/adminDashboard', [EventController::class, 'index'])->name('event.index');
+Route::get('/adminDashboard/addEvent', [EventController::class, 'create'])->name('event.create');
+Route::post('/adminDashboard', [EventController::class, 'store'])->name('event.store');
+Route::get('/adminDashboard/{event}/edit', [EventController::class, 'edit'])->name('event.edit');
+Route::put('/adminDashboard/{event}/update', [EventController::class, 'update'])->name('event.update');
+Route::delete('/adminDashboard/{event}/delete', [EventController::class, 'delete'])->name('event.delete');
+
+//member management
+Route::get('/memberManagement', [MemberController::class, 'index'])->name('member.index');
+Route::get('/memberManagement/create', [MemberController::class, 'create'])->name('member.create');
+Route::post('/memberManagement', [MemberController::class, 'store'])->name('member.store');
+Route::get('/memberManagement/{member}/edit', [MemberController::class, 'edit'])->name('member.edit');
+Route::put('/memberManagement/{member}/update', [MemberController::class, 'update'])->name('member.update');
+Route::delete('/memberManagement/{member}/delete', [MemberController::class, 'delete'])->name('member.delete');
+Route::get('/memberManagement/search', [MemberController::class, 'memberManagement'])->name('member.management');
+
+return view('user.member');
+
+
