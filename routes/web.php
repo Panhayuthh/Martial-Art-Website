@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ShopItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+
+//Route::get('/register', [AdminController::class, 'showRegisterForm'])->name('register');
+//Route::post('/register', [AdminController::class, 'register']);
+Route::get('login', [AdminController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AdminController::class, 'login'])->name('login.submit');
+Route::post('logout', [AdminController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('user.userDashboard');
@@ -33,4 +38,3 @@ Route::prefix('admin')->group(function () { //To-do: require authentication
     Route::get('/{shopItem}/edit', 'AdminController@edit')->name('admin.edit');
     Route::put('/{shopItem}/edit', 'AdminController@update')->name('admin.update');
     Route::delete('/{shopItem}', 'AdminController@destroy')->name('admin.destroy');
-});

@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
@@ -25,7 +24,5 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('user.components.layout', 'layout');
         Blade::component('user.components.nav-bar', 'nav-bar');
         Blade::component('user.components.footer', 'footer');
-
-
     }
 }
