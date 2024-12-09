@@ -7,10 +7,11 @@
 </head>
 <body>
 <x-layout>
-    <h1>User Dashboard</h1>
-    <p>Welcome to your dashboard!</p>
-    <!-- Add more content here -->
+   
+   
+
 </x-layout>
+
 
 </body>
 </html>

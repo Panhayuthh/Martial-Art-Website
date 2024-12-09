@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAGAK PUTIH INDONESIA</title>
+  <meta name="description" content="@yield('description','martial art club in Indonesia')">
+  <meta name="keywords" content="@yield('keywords','martial art , boxing')">
+  <title>GAGAK PUTIH INDONESIA - @yield('title','Martial art club')</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -16,20 +16,30 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item ">
-          <a class="nav-link text-uppercase fw-semibold px-3 active" aria-current="page" href="/">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-uppercase fw-semibold px-3" href="/event">Event</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-uppercase fw-semibold px-3" href="/registration">Registration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-uppercase fw-semibold px-3" href="/member">Member</a>
-        </li>
-      </ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+        <x-nav-link href="/" :active="request()->is('/')">
+            About Us
+        </x-nav-link>
+    </li>
+    <li class="nav-item">
+        <x-nav-link href="/event" :active="request()->is('event')">
+            Event
+        </x-nav-link>
+    </li>
+    <li class="nav-item">
+        <x-nav-link href="/registration" :active="request()->is('registration')">
+            Registration
+        </x-nav-link>
+    </li>
+    <li class="nav-item">
+        <x-nav-link href="/member" :active="request()->is('member')">
+            Member
+        </x-nav-link>
+    </li>
+</ul>
+
+
       <div class="d-flex align-items-center">
         <span class="text-light me-3 fw-semibold">Hi, Sunshine!</span>
         <button class="btn btn-info text-white fw-semibold">Log Out</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;  // Make sure Event model is included
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -9,6 +10,15 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        // Fetch events and paginate them (15 items per page)
+        $events = Event::paginate(15);
+
+        // Return the view and pass the $events variable
+        return view('admin.adminDashboard', compact('events'));
+    }
+
     //public function showRegisterForm()
     //{
         //return view('auth.register');
