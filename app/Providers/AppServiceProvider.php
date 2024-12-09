@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
+        // Paginator::useBootstrapFive();
         Blade::component('user.components.layout', 'layout');
         Blade::component('user.components.nav-bar', 'nav-bar');
         Blade::component('user.components.footer', 'footer');
