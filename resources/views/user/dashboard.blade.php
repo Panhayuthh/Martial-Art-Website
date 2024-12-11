@@ -18,13 +18,13 @@
         <link rel="icon" href="{{ asset('/image/martialArtLogo.png') }}" type="image/png" >
     </head>
     <body>
-        @include('partials.header')
+        @include('user.components.nav-bar')
         <main class="relative pt-20">
             <img alt="Martial arts competition" class="w-full h-screen object-cover opacity-50" src="/image/dashboard.png"/>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h1 class="text-6xl font-bold">GAGAK PUTIH</h1>
                 <h2 class="text-3xl mt-2">INDONESIA</h2>
-                <a href="">
+                <a href="{{route('member.registerMember') }}">
                 <button  class="mt-6 px-8 py-3 bg-blue-500 text-white font-bold rounded-full border-2 border-yellow-400 hover:bg-blue-600">
                     REGISTER
                 </button>
@@ -49,7 +49,7 @@
                       Bogor Regency.                    
                     </p>
                 </div>
-                <div class="md:w-1/2 relative">
+                <div id="carouselImage" class="carousel slide col-lg-5" data-bs-ride="carousel">
                     <div id="slideshow" class="relative w-full max-w-md mx-auto">
                         <img alt="aboutus1" class="rounded-lg w-full h-auto" src="/image/aboutus1.png" />
                         <img alt="aboutus2" class="rounded-lg absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700" src="/image/aboutus2.png" />
