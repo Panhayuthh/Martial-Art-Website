@@ -24,12 +24,14 @@
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <h1 class="text-6xl font-bold">GAGAK PUTIH</h1>
                 <h2 class="text-3xl mt-2">INDONESIA</h2>
-                <button class="mt-6 px-8 py-3 bg-blue-500 text-white font-bold rounded-full border-2 border-yellow-400 hover:bg-blue-600">
+                <a href="">
+                <button  class="mt-6 px-8 py-3 bg-blue-500 text-white font-bold rounded-full border-2 border-yellow-400 hover:bg-blue-600">
                     REGISTER
                 </button>
+                </a>
             </div>
         </main>
-        <div class="bg-gray-800">
+        <div class="bg-dark">
         <section id="about-us" class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-white text-center mb-8">ABOUT US</h1>
@@ -66,16 +68,15 @@
             </div>
         </div>
     </section>
-        
-            <div class="container mt-4 bg-gray-800">
-                <h2 class="text-center text-white fw-bold mb-3">SCHEDULE</h2>
+            <div class="container mt-4 bg-dark">
+                <h2 class="text-center text-white fw-bold mb-4">SCHEDULE</h2>
                 <div class="row">
                     <div class="col-md-4">
                     <div class="card" style=" color:black; text-align:center">
                     <h1>Monday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -84,11 +85,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -99,7 +100,7 @@
                     <h1>Tuesday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -108,11 +109,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -123,7 +124,7 @@
                     <h1>Wednesday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -132,11 +133,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -146,7 +147,7 @@
                     <h1>Thursday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -155,11 +156,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -170,7 +171,7 @@
                     <h1>Friday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -179,11 +180,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -194,7 +195,7 @@
                     <h1>Saturday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -203,11 +204,11 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
@@ -217,7 +218,7 @@
                     <h1>Sunday</h1>
                         <div class="d-flex flex-row align-items-center p-2">            
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school1.jpeg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">            
                             <p>Junior High School PGRI 1 Cibinong<br>
@@ -226,63 +227,17 @@
                         </div>
                         <div class="d-flex flex-row align-items-center p-2">
                         <div class="flex-shrink-0">
-                            <img src="/image/aboutus2.png" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
+                            <img src="/image/school2.jpg" alt="School" class="img-fluid rounded" style="width: 100px; height: auto;">
                         </div>
                         <div class="ms-3">              
-                            <p>Junior High School PGRI 1 Cibinong<br>
-                            09.00 - 11.00</p>
+                            <p>Senior High School PGRI Cibinong<br>
+                            15.00 - 17.00</p>
                         </div>       
                         </div>
                     </div>
                     </div>
                 </div>
-            </div>
-            
-            <h1 class="text-center text-white fw-bold mb-5 mt-4">Events</h1>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                
-            @foreach($events as $event)
-            <div class="col">
-                <div class="card h-100 border-0 rounded-4 overflow-hidden shadow-lg">
-                    <div class="position-relative">
-                        <img src="{{ asset('storage/' . $event->event_photo) }}" 
-                            class="card-img-top img-fluid" 
-                            alt="Event Image" 
-                            style="height: 250px; object-fit: cover; object-position: center;">
-                        <div class="position-absolute top-0 end-0 p-3">
-                            <span class="badge bg-primary bg-opacity-75 rounded-pill">
-                                {{ $event->created_at->diffForHumans() }}
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold mb-3">{{ $event->name }}</h5>
-                        
-                        <div class="d-flex align-items-center mb-2">
-                            <i class="bi bi-geo-alt text-primary me-3"></i>
-                            <span class="text-muted">{{ $event->place }}</span>
-                        </div>
-                        
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="bi bi-calendar text-primary me-3"></i>
-                            <span class="text-muted">{{ $event->event_date ?? 'N/A' }}</span>
-                        </div>
-                      
-                    </div>
-                </div>
-            </div>
-            @endforeach
-          </div>
-        </div>
-        <div class="bg-gray-800">
-        <div class="row m-4">
-            <div class="col-12 d-flex justify-content-center">
-                <div class="pagination pagination-sm">
-                    {{ $events->links('pagination::bootstrap-5') }}
-                </div>
-        </div> 
-        </div>   
+            </div>       
         @include('user.components.footer')
         <!-- <script>
             document.addEventListener('DOMContentLoaded', function() {
