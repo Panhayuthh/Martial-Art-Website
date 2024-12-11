@@ -9,7 +9,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="#">
       <img src="/image/martialArtLogo.png" alt="Logo" class="img-fluid" style="height: 60px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
    
     <li class="nav-item">
-        <x-nav-link href="/adminDashboard" :active="request()->is('adminDashboard')">
+        <x-nav-link href="{{route('admin.dashboard')}}" :active="request()->is('adminDashboard')">
             Event Management
         </x-nav-link>
     </li>
@@ -32,9 +32,13 @@
 
 
       <div class="d-flex align-items-center">
-        <span class="text-light me-3 fw-semibold">Hi, Sunshine!</span>
-        <button class="btn btn-danger">Log Out</button>
-      </div>
+        <span class="text-light me-3 fw-semibold">Admin</span>
+        <form action="{{ route('logout') }}" method="POST">
+          @csrf
+          <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+     
+    </div>
     </div>
   </div>
 </nav>

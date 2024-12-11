@@ -6,7 +6,6 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-
 class MemberController extends Controller
 {
     public function index()
@@ -15,26 +14,30 @@ class MemberController extends Controller
         return view('admin.memberManagement', ['members' => $members]);
     }
 
-    public function create()
+    public function admincreateMember()
     {
-        return view('admin.memberManagement'); 
+        return view('admin.addMember'); 
     }
 
+    public function userregisterMember()
+    {
+        return view('user.registerMember'); 
+    }
     public function store(Request $request)
     {
         $data = $request->validate([
-            'member_role' => 'required|in:coach,athlete', 
-            'member_name' => 'required',
-            'member_profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
-            'member_school' => 'required',
-            'member_gender' => 'required',
-            'member_belt' => 'required',
-            'member_medal' => 'required',
+            'member_role' => 'required|in:coach,athlete',
+            'member_name' => 'required|string|max:255',
+            'member_profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'member_school' => 'required|string|max:255',
+            'member_gender' => 'required|in:male,female',
+            'member_belt' => 'required|string|max:255',
+            'member_medal' => 'required|in:gold,silver,bronze',
         ]);
-
-        $profileImagePath = $data['member_profile']->store('member_profiles', 'public');
-
-        $newMember = Member::create([
+    
+        $profileImagePath = $request->file('member_profile')->store('member_profiles', 'public');
+    
+        Member::create([
             'member_role' => $data['member_role'],
             'member_name' => $data['member_name'],
             'member_profile' => $profileImagePath,
@@ -43,53 +46,57 @@ class MemberController extends Controller
             'member_belt' => $data['member_belt'],
             'member_medal' => $data['member_medal'],
         ]);
-
-        return redirect()->route('member.index')->with('success', 'Member added successfully!');
+    
+        if ($request->input('source') === 'admin') {
+            return redirect()->route('member.index')->with('success', 'Member added successfully!');
+        } else {
+            return redirect()->route('member.dashboard')->with('success', 'Thank you for registering!');
+        }
+        
     }
-    public function edit(Member $member){
+    
+
+    public function edit(Member $member)
+    {
         return view('admin.editMember', compact('member'));
-
     }
-    public function update(Member $member, Request $request)
-{
-    $data = $request->validate([
-        'member_role' => 'required|in:coach,athlete', 
-        'member_name' => 'required',
-        'member_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
-        'member_school' => 'required',
-        'member_gender' => 'required',
-        'member_belt' => 'required',
-        'member_medal' => 'required',
-    ]);
 
-    if ($request->hasFile('member_profile')) {
-        if ($member->member_profile) {
-            Storage::delete('public/' . $member->member_profile); 
+    public function update(Member $member, Request $request)
+    {
+        $data = $request->validate([
+            'member_role' => 'required|in:coach,athlete',
+            'member_name' => 'required|string|max:255',
+            'member_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'member_school' => 'required|string|max:255',
+            'member_gender' => 'required|in:male,female',
+            'member_belt' => 'required|string|max:255',
+            'member_medal' => 'required|in:gold,silver,bronze',
+        ]);
+
+        if ($request->hasFile('member_profile')) {
+            if ($member->member_profile) {
+                Storage::delete('public/' . $member->member_profile);
+            }
+            $data['member_profile'] = $request->file('member_profile')->store('member_profiles', 'public');
         }
 
-        $data['member_profile'] = $request->file('member_profile')->store('member_profiles', 'public');
+        $member->update($data);
+
+        return redirect()->route('member.index')->with('success', 'Member updated successfully');
     }
 
-    $member->update($data);
-
-    return redirect(route('member.index'))->with('success', 'Member updated successfully');
-}
-
-    public function delete(Member $member){
+    public function delete(Member $member)
+    {
         $member->delete();
-        return redirect(route('member.index'))->with('success', 'Event deleted successfully');
+        return redirect()->route('member.index')->with('success', 'Member deleted successfully');
     }
+
     public function memberManagement(Request $request)
-{
-    $search = $request->input('search');
-
-    if ($search) {
-        $members = Member::where('member_name', 'like', '%' . $search . '%')->get();
-    } else {
-        $members = Member::all();
+    {
+        $search = $request->input('search');
+        $members = $search
+            ? Member::where('member_name', 'like', '%' . $search . '%')->get()
+            : Member::all();
+        return view('admin.memberManagement', compact('members', 'search'));
     }
-    return view('admin.memberManagement', compact('members', 'search'));
-}
-
-    
 }

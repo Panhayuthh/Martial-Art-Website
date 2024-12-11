@@ -6,6 +6,8 @@
     <title>Event Management Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('/image/martialArtLogo.png') }}" type="image/png" >
+
 </head>
 <body>
   @include('/admin/addEvent')
@@ -93,7 +95,15 @@
             @endforeach
           </div>
       </div>
-      <x-footer></x-footer>
+      <div>
+        <div class="row m-4">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="pagination pagination-sm">
+                    {{ $events->links('pagination::bootstrap-5') }}
+                </div>
+        </div> 
+        </div>     
+    <x-footer></x-footer>
     </x-layouts>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
