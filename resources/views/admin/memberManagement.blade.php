@@ -7,6 +7,8 @@
     <title>Admin Dashboard</title>
     <!-- Add Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('/image/martialArtLogo.png') }}" type="image/png" >
+
     <style>
         /* Additional styling for better visual */
         .header {
@@ -37,6 +39,8 @@
 
 <body>
 @include('/admin/editMember')
+@include('/admin/addMember')
+
     <x-layouts>
         <div class="container mt-4">
             <div class="header text-center mb-4">
@@ -44,10 +48,8 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-3">
-            <div>
-                <a href="#" class="btn btn-warning">Coach</a>
-                <a href="#" class="btn btn-primary">Athlete</a>
-            </div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMemberModal">Add Member</button>
+
             <form action="{{ route('member.management') }}" method="get">
                 <div class="d-flex align-items-center">
                     <input type="search" name="search" class="form-control me-2" placeholder="Search club name" value="{{ $search ?? '' }}">
@@ -105,7 +107,11 @@
                                     {{ $member->member_belt }}
                                     </span>
                                 </td>
-                                <td>{{ $member->member_medal }}</td>
+                                <td>
+        
+                                    {{ $member->member_medal }}
+                                </td>
+
                                 <td>
                                 <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editMemberModal-{{ $member->id }}">
                                     Edit

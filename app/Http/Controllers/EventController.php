@@ -8,11 +8,23 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-    public function index()
+    // public function index()
+    // {
+    //     $events = Event::all();
+    //     return view('admin.adminDashboard',['events'=>$events]);
+    // }
+    public function adminDashboard()
     {
-        $events = Event::all();
-        return view('admin.adminDashboard',['events'=>$events]);
+        $events = Event::paginate(10);
+        return view('admin.adminDashboard', ['events' => $events]);
     }
+    
+    public function userDashboard()
+    {
+        $events = Event::paginate(10);
+        return view('user.dashboard', ['events' => $events]);
+    }
+    
 
     public function create()
     {
@@ -33,7 +45,7 @@ class EventController extends Controller
             'event_photo' => $data['event_photo']->store('event_photos', 'public'), 
         ]);
 
-        return redirect(route('event.index'));
+        return redirect(route('admin.dashboard'));
     }
     public function edit(Event $event){
         return view('admin.editEvent' , compact('event'));
@@ -57,12 +69,11 @@ class EventController extends Controller
 
         $event->update($data);
 
-        return redirect(route('event.index'))->with('success', 'Event updated successfully');
+        return redirect(route('admin.dashboard'))->with('success', 'Event updated successfully');
     }
     public function delete(Event $event){
         $event->delete();
-        return redirect(route('event.index'))->with('success', 'Event deleted successfully');
+        return redirect(route('admin.dashboard'))->with('success', 'Event deleted successfully');
     }
-    
-
+  
 }

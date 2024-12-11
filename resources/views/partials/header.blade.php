@@ -1,25 +1,24 @@
-<header class="bg-black text-white fixed w-full z-10">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-        <div class="flex items-center">
-            <img alt="Gagak Putih Indonesia logo" class="h-12 w-12" height="50" src="{{ asset('images//logo.png') }}" width="50"/>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white py-3 fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/userdashboard">
+            <img src="/image/martialArtLogo.png" alt="Logo" class="img-fluid" style="height: 60px;">
+        </a>
 
         <!-- Navigation Desktop -->
-        <nav class="ml-6 hidden md:flex justify-center w-full">
-            <ul class="flex space-x-6">
+        <nav class="hidden md:flex justify-center align-item-center text-center w-full">
+            <ul class="flex justify-center gap-6">
                 <li><a id="about-link" class="nav-link text-blue-400" href="#about-us">About Us</a></li>
+                <li><a id="schedule-link" class="nav-link text-blue-400" href="#">Schedule</a></li>
                 <li><a id="events-link" class="nav-link text-blue-400" href="#events">Event</a></li>
-                <li><a id="registration-link" class="nav-link text-blue-400" href="#">Registration</a></li>
-                <li><a id="member-link" class="nav-link text-blue-400" href="#">Member</a></li>
+                <li><a id="registration-link" class="nav-link text-blue-400" href="{{ route('member.registerMember') }}">Registration</a></li>
+                <!-- <li><a id="member-link" class="nav-link text-blue-400" href="#">Member</a></li> -->
             </ul>
         </nav>
 
-        <!-- Hamburger Button for mobile -->
-        <div class="md:hidden flex items-center">
-            <button id="hamburger-icon" class="text-blue-400" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i> <!-- Hamburger icon -->
-            </button>
-        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 
     <!-- Mobile Menu -->
@@ -35,4 +34,4 @@
             </ul>
         </nav>
     </div>
-</header>
+</nav>

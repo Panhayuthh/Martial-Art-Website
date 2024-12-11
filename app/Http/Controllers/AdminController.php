@@ -51,22 +51,25 @@ class AdminController extends Controller
     }
     public function login(Request $request)
     {
-        // Validate the input
         $validated = $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
-
-        // Check if the user exists and password is correct
         $user = User::where('email', $request->email)->first();
-
         if ($user && Hash::check($request->password, $user->password)) {
-            // Correct password, authenticate user and set session
             Auth::login($user);
-            return redirect()->route('admin.dashboard');
+            return redirect(route('admin.dashboard'));
         } else {
-            // If credentials are incorrect
             return redirect()->route('login')->with('error', 'Incorrect email or password!');
         }
     }
+    public function logout(Request $request)
+{
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect(route('login'));
+}
+
 }
