@@ -18,7 +18,7 @@ class AdminController extends Controller
         // Return the view and pass the $events variable
         return view('admin.adminDashboard', compact('events'));
     }
-
+    
     //public function showRegisterForm()
     //{
         //return view('auth.register');

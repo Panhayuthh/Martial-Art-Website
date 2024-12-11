@@ -18,24 +18,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="/" class="nav-link text-white">
+          <x-nav-link href="/" :active="request()->is('userDashboard')"  class="nav-link text-white">
             About Us
-          </a>
+          </x-nav-link>
         </li>
         <li class="nav-item">
-          <a href="/event" class="nav-link text-white">
+          <x-nav-link href="/event" :active="request()->is('event')" class="nav-link text-white" >
             Event
-          </a>
+          </x-nav-link>
         </li>
         <li class="nav-item">
-          <a href="/registration" class="nav-link text-white">
+          <x-nav-link href="{{route('member.registerMember')}}" :active="request()->is('registerMember')"  class="nav-link text-white">
             Registration
-          </a>
+          </x-nav-link>
         </li>
         <li class="nav-item">
-          <a href="/member" class="nav-link text-white">
+          <x-nav-link href="/member" :active="request()->is('member')"  class="nav-link text-white">
             Member
-          </a>
+          </x-nav-link>
         </li>
       </ul>
 
