@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('user.userDashboard');
 });
 
+Route::get('/event' , [EventController::class, 'index'])->name('event.index');
+
+Route::get('/member' , [MemberController::class, 'index'])->name('member.index');
 
 // Event Routes
 Route::get('/userdashboard', [EventController::class, 'userDashboard'])->name('member.dashboard');  // User's event view
@@ -39,7 +42,7 @@ Route::put('/adminDashboard/{event}/update', [EventController::class, 'update'])
 Route::delete('/adminDashboard/{event}/delete', [EventController::class, 'delete'])->name('event.delete');
 
 //admin manage member 
-Route::get('/memberManagement', [MemberController::class, 'index'])->name('member.index');
+Route::get('/memberManagement', [AdminController::class, 'member'])->name('member.index');
 Route::get('/memberManagement/addMember', [MemberController::class, 'create'])->name('member.create');
 Route::post('/memberManagement', [MemberController::class, 'store'])->name('member.store');
 Route::get('/memberManagement/{member}/edit', [MemberController::class, 'edit'])->name('member.edit');

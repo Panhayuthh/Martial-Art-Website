@@ -10,8 +10,9 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = Member::all(); 
-        return view('admin.memberManagement', ['members' => $members]);
+        $members = Member::paginate(10);
+        return view('user.member', ['members' => $members]);
+        // return $members;
     }
 
     public function admincreateMember()

@@ -30,7 +30,7 @@
             <div class="col">
                 <div class="card h-100 border-0 rounded-4 overflow-hidden shadow-lg">
                     <div class="position-relative">
-                        <img src="{{ asset('storage/' . $event->event_photo) }}" 
+                        <img src="{{ $event->event_photo ? asset('storage/' . $event->event_photo) : 'https://via.placeholder.com/350x350?text=Image' }}" 
                             class="card-img-top img-fluid" 
                             alt="Event Image" 
                             style="height: 250px; object-fit: cover; object-position: center;">

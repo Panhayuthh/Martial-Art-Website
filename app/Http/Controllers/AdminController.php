@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;  // Make sure Event model is included
+use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,6 +18,12 @@ class AdminController extends Controller
 
         // Return the view and pass the $events variable
         return view('admin.adminDashboard', compact('events'));
+    }
+
+    public function member()
+    {
+        $members = Member::all(); 
+        return view('admin.memberManagement', ['members' => $members]);
     }
     
     //public function showRegisterForm()
