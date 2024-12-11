@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained()->onDelete('cascade');
             $table->string('athlete_name');
             $table->string('athlete_school');
-            $table->string('athlete_photo');
+            $table->string('athlete_photo')->nullable();
             $table->string('athlete_gender');
             $table->string('athlete_medal');
             $table->timestamps();

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('member_role');
             $table->string('member_name');
-            $table->text('member_profile'); 
+            $table->text('member_profile')->nullable(); 
             $table->string('member_school');
             $table->string('member_gender');
             $table->string('member_belt');
