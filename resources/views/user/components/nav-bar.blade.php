@@ -18,30 +18,29 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <x-nav-link href="/" :active="request()->is('userDashboard')"  class="nav-link text-white">
+          <x-nav-link href="/" :active="request()->is('/')"  class="nav-link text-white">
             About Us
           </x-nav-link>
         </li>
         <li class="nav-item">
-          <x-nav-link href="/event" :active="request()->is('event')" class="nav-link text-white" >
+          <x-nav-link href="{{ route('event.index') }}" :active="request()->is('event')" class="nav-link text-white" >
             Event
           </x-nav-link>
         </li>
         <li class="nav-item">
-          <x-nav-link href="{{route('member.registerMember')}}" :active="request()->is('registerMember')"  class="nav-link text-white">
+          <x-nav-link href="{{route('member.registerMember')}}" :active="request()->is('userdashboard/registerMember')"  class="nav-link text-white">
             Registration
           </x-nav-link>
         </li>
         <li class="nav-item">
-          <x-nav-link href="/member" :active="request()->is('member')"  class="nav-link text-white">
+          <x-nav-link href="{{ route('member.index') }}" :active="request()->is('member')"  class="nav-link text-white">
             Member
           </x-nav-link>
         </li>
       </ul>
-
+      
       <div class="d-flex align-items-center">
-        <span class="text-white me-3 fw-semibold">Hi, Sunshine!</span>
-        <button class="btn btn-info text-white fw-semibold">Log Out</button>
+        <a href="{{ route('login') }}" class="btn btn-primary rounded-pill text-white fw-semibold">Login</a>
       </div>
     </div>
   </div>

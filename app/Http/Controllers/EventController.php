@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-    // public function index()
-    // {
-    //     $events = Event::all();
-    //     return view('admin.adminDashboard',['events'=>$events]);
-    // }
+    public function index()
+    {
+        $events = Event::paginate(10);
+        return view('user.event', ['events' => $events]);
+
+        // return Event::all();
+    }
     public function adminDashboard()
     {
         $events = Event::paginate(10);

@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gagak Putih Indonesia</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  @section('title','User Dashboard')
+@extends('user.components.layout')
+
+@section('title','User Dashboard')
  
-  <x-layout>
+@section('content')
     <!-- Hero Section -->
     <div class="position-relative text-white">
       <img src="/image/dashboard.png" alt="Hero Image" class="img-fluid w-100 object-cover opacity-50" style="height: 100vh; object-fit: cover;">
@@ -234,8 +227,4 @@
                     </div>
                 </div>
             </div>  
-</x-layout>
-<x-footer></x-footer>
-</body>
-</html>
-
+@endsection
