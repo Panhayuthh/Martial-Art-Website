@@ -24,7 +24,7 @@
         </x-nav-link>
     </li>
     <li class="nav-item">
-        <x-nav-link href="/memberManagement" :active="request()->is('memberManagement')">
+        <x-nav-link href="{{ route('admin.member') }}" :active="request()->is('memberManagement')">
             Member Management
         </x-nav-link>
     </li>

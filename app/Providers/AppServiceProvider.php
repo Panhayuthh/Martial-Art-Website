@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
@@ -19,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot(UrlGenerator $url): void
     {
         Paginator::useBootstrapFive();
         Blade::component('user.components.layout', 'layout');
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('admin.Components.footer', 'footer');
 
         if (env('APP_ENV') == 'production') {
-            $this->app['request']->server->set('HTTPS', true);
+            $url->forceScheme('https');
         }
     }
 }
