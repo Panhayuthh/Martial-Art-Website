@@ -31,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('admin.Components.nav-link', 'nav-link');
         Blade::component('admin.Components.footer', 'footer');
 
-
-        
-
+        if (env('APP_ENV') == 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 }
