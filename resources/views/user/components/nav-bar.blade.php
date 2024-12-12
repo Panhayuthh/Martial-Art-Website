@@ -28,7 +28,7 @@
           </x-nav-link>
         </li>
         <li class="nav-item">
-          <x-nav-link href="{{route('member.registerMember')}}" :active="request()->is('userdashboard/registerMember')"  class="nav-link text-white">
+          <x-nav-link href="{{route('registration.index')}}" :active="request()->is('registration')"  class="nav-link text-white">
             Registration
           </x-nav-link>
         </li>

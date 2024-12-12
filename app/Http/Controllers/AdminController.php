@@ -25,6 +25,10 @@ class AdminController extends Controller
         $members = Member::all(); 
         return view('admin.memberManagement', ['members' => $members]);
     }
+
+    public function memberCreate() {
+        return app(MemberController::class)->create();
+    }
     
     //public function showRegisterForm()
     //{

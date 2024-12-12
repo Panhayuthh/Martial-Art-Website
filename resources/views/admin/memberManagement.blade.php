@@ -44,6 +44,14 @@
     <x-layouts>
         <div class="container mt-4">
             <div class="header text-center mb-4">
+                @if(session('error'))
+                <div class="alert alert-danger mt-3">{{ session('error') }}</div>
+                @endif
+
+                @if(session('success'))
+                <div class="alert alert-success mt-3">{{ session('success') }}</div>
+                @endif
+
                 <h1>Member Management</h1>
             </div>
 
@@ -119,7 +127,7 @@
                                 <form action="{{ route('member.delete', ['member' => $member]) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this member?')">
                                         Delete
                                     </button>
                                 </form>

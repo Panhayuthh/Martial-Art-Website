@@ -20,25 +20,41 @@ class MemberController extends Controller
         return view('admin.addMember'); 
     }
 
-    public function userregisterMember()
+    public function create()
     {
         return view('user.registerMember'); 
     }
     public function store(Request $request)
     {
+        // dd($request->all());
+
         $data = $request->validate([
             'member_role' => 'required|in:coach,athlete',
             'member_name' => 'required|string|max:255',
-            'member_profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'member_profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'member_school' => 'required|string|max:255',
             'member_gender' => 'required|in:male,female',
             'member_belt' => 'required|string|max:255',
             'member_medal' => 'required|in:gold,silver,bronze',
         ]);
     
-        $profileImagePath = $request->file('member_profile')->store('member_profiles', 'public');
+        // $profileImagePath = $request->file('member_profile')->store('member_profiles', 'public');
+
+        $profileImagePath = $request->hasFile('image')
+        ? $request->file('member_profile')->store('member_profiles', 'public')
+        : null;
     
-        Member::create([
+        // Member::create([
+        //     'member_role' => $data['member_role'],
+        //     'member_name' => $data['member_name'],
+        //     'member_profile' => $profileImagePath,
+        //     'member_school' => $data['member_school'],
+        //     'member_gender' => $data['member_gender'],
+        //     'member_belt' => $data['member_belt'],
+        //     'member_medal' => $data['member_medal'],
+        // ]);
+
+        $member = new Member([
             'member_role' => $data['member_role'],
             'member_name' => $data['member_name'],
             'member_profile' => $profileImagePath,
@@ -48,10 +64,13 @@ class MemberController extends Controller
             'member_medal' => $data['member_medal'],
         ]);
     
-        if ($request->input('source') === 'admin') {
-            return redirect()->route('member.index')->with('success', 'Member added successfully!');
-        } else {
-            return redirect()->route('member.dashboard')->with('success', 'Thank you for registering!');
+        try {
+            $member->save();
+            // return 'success';
+            return redirect()->back()->with('success', 'member created successfully');
+        } catch (\Exception $e) {
+            // return 'fail';
+            return redirect()->back()->with('error', $e->getMessage());
         }
         
     }
@@ -83,13 +102,13 @@ class MemberController extends Controller
 
         $member->update($data);
 
-        return redirect()->route('member.index')->with('success', 'Member updated successfully');
+        return redirect()->back()->with('success', 'Member updated successfully');
     }
 
     public function delete(Member $member)
     {
         $member->delete();
-        return redirect()->route('member.index')->with('success', 'Member deleted successfully');
+        return redirect()->back()->with('success', 'Member deleted successfully');
     }
 
     public function memberManagement(Request $request)

@@ -22,6 +22,12 @@ Route::get('/event' , [EventController::class, 'index'])->name('event.index');
 
 Route::get('/member' , [MemberController::class, 'index'])->name('member.index');
 
+
+Route::group(['prefix' => 'registration'], function () {
+    Route::get('/', [MemberController::class, 'create'])->name('registration.index');
+    Route::post('/', [MemberController::class, 'store'])->name('register.store');
+});
+
 // Event Routes
 Route::get('/userdashboard', [EventController::class, 'userDashboard'])->name('member.dashboard');  // User's event view
 
@@ -29,7 +35,9 @@ Route::get('/userdashboard', [EventController::class, 'userDashboard'])->name('m
 Route::get('/userdashboard/registerMember', [MemberController::class, 'userregisterMember'])->name('member.registerMember');  // Show registration form
 Route::post('/userdashboard/registerMember', [MemberController::class, 'store'])->name('user.store');  // Submit registration
 
-// Additional routes for other actions like viewing a list of members could also be added here.
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/member', [AdminController::class, 'memberCreate'])->name('admin.create.member');
+});
 
 
 //admin manage event Routes 
@@ -44,7 +52,7 @@ Route::delete('/adminDashboard/{event}/delete', [EventController::class, 'delete
 //admin manage member 
 Route::get('/memberManagement', [AdminController::class, 'member'])->name('admin.member');
 Route::get('/memberManagement/addMember', [MemberController::class, 'create'])->name('member.create');
-Route::post('/memberManagement', [MemberController::class, 'store'])->name('member.store');
+Route::post('/memberManagement', [MemberController::class, 'store'])->name('member.store'); 
 Route::get('/memberManagement/{member}/edit', [MemberController::class, 'edit'])->name('member.edit');
 Route::put('/memberManagement/{member}/update', [MemberController::class, 'update'])->name('member.update');
 Route::delete('/memberManagement/{member}/delete', [MemberController::class, 'delete'])->name('member.delete');
