@@ -33,7 +33,7 @@
                                     <input class="form-check-input" type="radio" id="roleAthlete" name="member_role" value="athlete" required checked>
                                     <label class="form-check-label" for="roleAthlete">Athlete</label>
                                 </div>
-                            </div>               
+                            </div>                 
                             <div class="mb-3">
                                 <label for="member_name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="member_name" name="member_name" required>
